@@ -1,0 +1,247 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width">
+	<meta charset="utf-8">
+	<title>vue</title>
+	<style type="text/css">
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		header {
+			background: #393a3f;
+			height: 2.9687em;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 1;
+		}
+		ul{
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		h2,p{
+			margin: 0;
+		}
+		header h1 {
+			color:#ffffff;
+			font-weight: 500;
+			font-size: 1.0625em;
+			display: inline-block;
+			margin: 0 0 0 0.8235em;
+			padding: 0;
+			height: 2.7941em;
+			line-height: 2.7941em;
+		}
+		button{
+			padding: 0;
+			border: 0;
+		}
+		button:focus{
+			outline: 0;
+		}
+		.r-group{
+			float: right;
+			margin-right: 0.875em;
+			padding-top: 0.2656em;
+		}
+		.btn-search{
+			width: 3.25em;
+			height: 3.25em;
+			float: left;
+			margin-right: 1.25em;
+			background: url("img/search.png") no-repeat center;
+			background-size: 50% 50%;
+			text-indent:-9999px
+		}
+		.drop-grop {
+			width: 2.4375em;
+			height: 2.4375em;
+			float:left;
+		}
+		.add-btn {
+			width: 3.25em;
+			height: 3.25em;
+			background: url("img/add.png") no-repeat center;
+			background-size: 50% 50%;
+			text-indent:-9999px
+
+		}
+		.child-list{
+			position: absolute;
+			right: 0.875em;
+			top: 2.9687em;
+			width: 12.5em;
+			padding-top: 0.2656em;
+			background: #393a3f;
+			box-shadow: 0px 0px 5px 2px #333;
+		}
+		.child-list li {
+			height: 2.9687em;
+			line-height: 2.9687em;
+			border-bottom: solid 1px #191b1c;
+			color: #ffffff;
+			padding-left: 1.0937em;
+		}
+		.icon:before{
+			content:'';
+			display: inline-block;
+			width: 2.9687em;
+			height: 2.9687em;
+			background: no-repeat center;
+			background-size: 40% 40%;
+			float: left;
+		}
+		.icon-message:before{
+			background-image: url("img/message.png");
+		}
+		.icon-add-people:before{
+			background-image: url("img/add-people.png");
+		}		
+		.icon-sys:before{
+			background-image: url("img/sys.png");
+		}		
+		.icon-pay:before{
+			background-image: url("img/pay.png");
+		}		
+		.icon-help:before{
+			background-image: url("img/feedback.png");
+		}
+
+		/* 列表组件 */
+		.wx-list{
+			padding-top: 2.9687em;
+		}
+		.wx-list dl,.wx-list dd{
+			margin: 0;
+		}
+		.wx-list dl{
+			width: 100%;
+			height: 3.9687em;
+			border-bottom: solid 1px #d9d9d9;
+			background: #ffffff;
+			position: relative;
+		}
+		.wx-list dt,.wx-list dd{
+			float: left;
+		}
+		.wx-list dt{
+			padding: 0.5em 0.75em 0 0.875em;
+		}
+		.wx-list dt img {
+			width: 2.9687em;
+			height: 2.9687em;
+		}
+		.wx-list dd{
+			padding-top: 0.875em;
+		}
+		.wx-list dd h2 {
+			font-size: 0.8125em;
+			color: #353535;
+			margin-bottom: 0.5625em;
+		}
+		.wx-list dd p{
+			font-size: 0.625em;
+			color: #999999;
+		}
+		.wx-list dd time{
+			position: absolute;
+			top: 0.875em;
+			right: 0.875em;
+			font-size: 0.5625em;
+			color: #bbbbbb;
+		}
+
+		/* 底部组件 */
+		.wx-foot{
+			width: 100%;
+			height: 3.3125em;
+			background: #fcfcfc;
+			border-top: solid 1px #d6d6d6;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+		}
+		.wx-foot ul{
+			height: 3.3125em;
+		}
+		.wx-foot li{
+			float: left;
+			width: 25%;
+			height: 3.3125em;
+			text-align: center;
+			color: #b9b9b9;
+			font-size: 0.625em;
+		}
+		.wx-foot li:before{
+			float: none;
+			margin: 0 auto;
+			display: block;
+			background-size: 60% 60%;
+		}
+		.wx-foot .icon-wx:before{
+			background-image: url("img/foot-msg.png");
+		}
+		.wx-foot .icon-addresslist:before{
+			background-image: url("img/addresslist.png");
+		}
+		.wx-foot .icon-found:before{
+			background-image: url("img/found.png");
+		}
+		.wx-foot .icon-me:before{
+			background-image: url("img/me.png");			
+		}
+		.wx-foot .icon-wx-current:before{
+			background-image: url("img/foot-msg-active.png");
+		}
+		.wx-foot .icon-addresslist-current:before{
+			background-image: url("img/addresslist-active.png");
+		}
+		.wx-foot .icon-found-current:before{
+			background-image: url("img/found-active.png");
+		}
+		.wx-foot .icon-me-current:before{
+			background-image: url("img/me-active.png");			
+		}
+	</style>
+	<script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<wx-head :prop="dotos"></wx-head>
+		<wx-list :prop="list"></wx-list>
+		<wx-foot :prop="foot"></wx-foot>
+	</div>
+	<script type="text/javascript" src="assembly.vue"></script>
+	<script type="text/javascript">
+		new Vue({
+			el: "#app",
+			data: {
+				dotos: {
+					title: '微信',
+					childActive: false,
+					items: [
+						{text:'发起群聊',icon:'icon icon-message'},
+						{text:'添加朋友',icon:'icon icon-add-people'},
+						{text:'扫一扫',icon:'icon icon-sys'},
+						{text:'收付款',icon:'icon icon-pay'},
+						{text:'帮助与反馈',icon:'icon icon-help'}
+					]
+				},
+				list: [
+					{title:'爸爸',description:'不知道啊',src:'img/1.png',alt:'爸爸',time:'19:15'},
+					{title:'小雨',description:'你好嘛',src:'img/2.png',alt:'小雨',time:'16:52'}
+				],
+				foot: [
+					{name:'微信',icon:'icon icon-wx',active:true},
+					{name:'通讯录',icon:'icon icon-addresslist',active:false},
+					{name:'发现',icon:'icon icon-found',active:false},
+					{name:'我',icon:'icon icon-me',active:false},
+				]
+			}
+		});
+	</script>
+</body>
+</html>
